@@ -1,0 +1,203 @@
+.. phase documentation master file, created by
+   sphinx-quickstart on Wed Oct 14 17:50:20 2015.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to phase's documentation!
+=================================
+
+** Module Bildosoft Phase **
+
+Chargement d’une image
+======================
+
+Ouvrir Pegase Pro et Phase, tirer lâcher l’imagette correspondant à
+l’image à traiter de l’album pegase vers la fenêtre de phase, ou charger
+directement une image à partir du menu Fichier.
+
+.. image:: /_static/image0.jpg
+   :scale: 50
+
+
+l'image s'affiche dans la fenêtre.
+
+
+Paramètres de seuillages
+========================
+
+La commande « seuillage » du menu « outil » sert à régler les plages de
+luminosités pour mettre en évidence les zones recherchées.
+
+.. image:: /_static/image1.jpg
+   :scale: 50
+
+
+Channel : permet de travailler sur une des composantes couleurs ou sur
+la luminosité. Choisir le canal « grayscale » revient à travailler sur
+l’image convertie en monochrome (bien que la visualisation soit faite
+sur l’image couleur d’origine ).
+
+Threshold : les pixels dont la valeur est compris dans cette plage est
+sélectionnée et apparait dans la couleur choisie par l’utilisateur.
+
+Les valeurs Lower et Upper correspondent aux deux bornes de cet
+intervalle et son symbolisés par des traits verticaux. On peut soit
+rentrer les valeurs à la main, soit déplacer les curseur avec la souris
+( se placer dessus, garder le bouton gauche de la souris enfoncée tout
+en la déplaçant).
+
+Hysteresis :
+============
+
+En mettant la propriété « Enable » à « True » le logiciel rajoute 2
+curseurs
+
+.. image:: /_static/image2.jpg
+   :scale: 50
+
+
+Les curseurs principaux définissent les pixels « racine ». A partir de
+ces pixels racine le logiciel va étendre la sélection à tous les pixels
+qui les touchent et dont la valeur est comprise dans l’intervalle
+définit par les 2 curseur d’hystérésis.
+
+Ainsi, des pixels isolés dont la valeur est comprise entre les seuils
+d’hystérésis et les seuils principaux ne seront pas sélectionnés, alors
+que si ils avaient touché des pixels sélectionnés par les seuils
+principaux ils auraient quand même été sélectionné.
+
+***Cela à pour effet d’étendre les objets et les objets seulement.***
+
+Les paramètres « Fill color » servent à choisir la couleur des pixels
+sélectionnés.
+
+Définition des zones d’analyse.
+===============================
+
+A l’ouverture du logiciel, l’analyse se fait sur toute l’image. Elle
+peut être réduite à une partie de l’image en utilisant un « template ».
+
+Définition d’un « Template » :
+
+Il y a 3 types : rectangle, cercle et ellipse.
+
+Dans tous les cas il faut saisir les dimensions du « template » et
+l’unité est le millimètre.
+
+***Important :*** Les dimensions à rentrer dépendent du grossissement
+choisi ( onglet « properties » et « magnification ») car les
+« templates » sont projeté sur l’image après grossissement. On peut donc
+choisir de travailler dans l’espace réel en travaillant à grossissement
+1 ou dans l’espace agrandi ( dépoli ) si on saisit le grossissement
+utilisé pour faire la photo.
+
+Si on ne voit pas son « template » c’est que les valeurs saisies sont
+incohérente par rapport au grossissement fixé dans l’onglet
+« properties ». Il est alors soit beaucoup plus grand que l’image soit
+beaucoup plus petit et dans tous les cas invisble.
+
+|image3|
+
+
+
+On peut mettre plusieur « template » sur une image. Leur combinaison est
+alors gérée par le paramètre « operation ». Par défaut « Union » permet
+de compter la surface totales des templates empilés.
+
+Manipulation des Template.
+--------------------------
+
+Des petites poingnées apparaissent au centre et au bord des objets.
+
+Déplacer un Template :
+
+cliquer avec le bouton gauche sur la poingné au centre du template et
+déplacer la souris en maintenant le bouton gauche enfoncé.
+
+En maintenant la touche « Alt » enfoncée le Template se centre là où on
+clic gauche.
+
+Faire tourner un Template :
+
+Faire comme pour déplacer un template mais en sélectionnant une des
+poignées de coté et en maintenant la touche « ctrl » enfoncée.
+
+Sélectionner un Template parmi plusieurs : utiliser le clic droit de la
+souris pour sélectionn/désélectionner.
+
+Mémorisation des Templates
+==========================
+
+Le menu « Save As » permet de mémoriser autant de Template que besoin.
+Les derniers Templates utilisés apparaissent dan la zone « Open a
+Template » ou sont accessibles par recherche directe du fichier sur le
+disque via « More Templates… ».
+
+Le menu ROI sert à dessiner les zones d’analyse. Il est possible de
+supprimer individuellement une zone en la sélectionnant à l’aide de la
+commande sélectionner une ROI puis en cliquant sur le bouton
+« supprimer ».
+
+Onglet « Properties »
+=====================
+
+Cet onglet sert à fixer les dimension et grossissements.
+
+La partie Image est automatiquement remplie quand l’image vient de
+Pegase Pro. Mais pour une image issue d’un fichier externe,
+l’utilisateur devra rentrer le calibrage de l’image sous la forme d’une
+résolution horizontale et verticale en pixel par millimètre.
+
+Cette information donne la dimension du pixel qui sera ensuite
+multipliée par le paramètres « magnification » avant d’être projeté dans
+le plan du Template ( si il y en a).
+
+Les informations « Shapes » détermine la couleur des divers éléments
+utilisé dans le module.
+
+Récupération des données
+========================
+
+Récupération interactive des données : le menu « édition/copier » donne
+accès à deux commandes. Ces commandes mettent dans le presse papier soit
+l’image avec ses ROI, soit la valeur du % de phase correspondant.
+
+Récupération interactive des données : Un complément automation permet
+d’accéder à ces données par programmation. Pour en voir le contenu, le
+charger par exemple dans excel et consulter l’explorateur d’objet.
+
+Quitter le module
+-----------------
+
+en quittant le module les données sont automatiquement enregistrées avec
+le fichier image d’origine. L’image d’origine n’est jamais altérée.
+
+
+.. |image3| image:: /_static/image3.jpg
+   :scale: 50
+
+
+
+
+
+
+
+
+
+
+
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
